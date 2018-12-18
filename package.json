@@ -1,0 +1,58 @@
+{
+  "name": "node-electron-bundle-demo",
+  "productName": "node-electron-bundle-demo",
+  "description": "Demo app to show bundling of Node.js & Yarn to an Electron app",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "0.0.1",
+  "author": "AWolf81",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "dependencies": {
+    "node": "11.4.0",
+    "yarn": "1.12.3"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "6.0.0-beta.22",
+    "@electron-forge/maker-deb": "6.0.0-beta.22",
+    "@electron-forge/maker-rpm": "6.0.0-beta.22",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.22",
+    "@electron-forge/maker-zip": "6.0.0-beta.22",
+    "app-root-dir": "1.0.2",
+    "electron": "2.0.7"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asarUnpack": [
+          "**/app/node_modules/node/*",
+          "**/app/node_modules/yarn/*"
+        ]
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel"
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
