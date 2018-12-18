@@ -2,7 +2,7 @@
 
 ## Boilerplate for the project
 
-This project is using electron-forge as base-
+This project is using electron-forge as base.
 
 ## Installation
 
